@@ -37,7 +37,7 @@ runs:
             -d "{\"body\": \"${COMMENT}\"}")
 
         # Obtenha o ID do comentário criado
-        comment_id=$(echo $response | jq -r.id)
+        comment_id=$(echo $response | jq -r .id)
 
         echo
 
