@@ -31,10 +31,10 @@ runs:
         COMMENT=$COMMENT
 
         # Inicialize o cliente do github
-        response=$(curl -s -X POST -H "Authorization:token ${GITHUB_TOKEN}"\
-          -H "Accept: application/vnd.github.v3+json"\
-          https://api.github.com/repos/${GITHUB_REPOSITORY}/issues/${ISSUE_ID}/comments \
-          -d "{\"body\":\"${COMMENT}\"}")
+        response=$(curl -s -X POST -H "Authorization: token ${GITHUB_TOKEN}" \
+            -H "Accept: application/vnd.github.v3+json" \
+            https://api.github.com/repos/${GITHUB_REPOSITORY}/issues/${ISSUE_ID}/comments \
+            -d "{\"body\": \"${COMMENT}\"}")
 
         # Obtenha o ID do comentário criado
         comment_id=$(echo $response | jq -r.id)
